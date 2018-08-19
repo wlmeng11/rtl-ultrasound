@@ -1,1 +1,6 @@
 pyrtlsdr
+numpy
+matplotlib
+scipy
+opencv2
+pyserial
