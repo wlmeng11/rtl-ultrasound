@@ -2,5 +2,5 @@ pyrtlsdr
 numpy
 matplotlib
 scipy
-opencv2
+opencv-python
 pyserial
