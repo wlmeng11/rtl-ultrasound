@@ -1,4 +1,4 @@
-# rtlsdr_ultrasound
+# rtl_ultrasound
 -----
 TODO: logo next to title
 
@@ -30,12 +30,12 @@ Warning: If you previously installed software that bundles an out-of-date versio
 you may have to remove it, or overwrite the symlinks for librtlsdr: `brew link --overwrite librtlsdr`
 
 ### Automatic installation
-Install rtlsdr_ultrasound:  
-`pip3 install rtlsdr_ultrasound`
+Install rtl_ultrasound:  
+`pip3 install rtl_ultrasound`
 
 ### Manual installation
 Clone the development repo:  
-`git clone git@github.com:wlmeng11/rtlsdr_ultrasound.git`
+`git clone git@github.com:wlmeng11/rtl_ultrasound.git`
 
 Install the python package dependencies:  
 `pip3 install -r requirements.txt`
@@ -52,7 +52,7 @@ provides an analog signal output that can be fed to the input of the RTL-SDR.
 
 ## Documentation
 A fairly comprehensive overview of the entire process from data acquisition to rendered image
-can be found [here](experiments/20180813/rtlsdr_ultrasound_test.ipynb).
+can be found [here](experiments/20180813/rtl_ultrasound_test.ipynb).
 
 Essentially, it boils down to these steps:
 
@@ -73,4 +73,4 @@ The full text of the license can be found in the [COPYING](COPYING) file.
 
 [pyrtlsdr](https://github.com/roger-/pyrtlsdr) is Copyright (C) 2013 by Roger https://github.com/roger-
 
-[rtlsdr_ultrasound](https://github.com/wlmeng11/rtlsdr_ultrasound/) is Copyright (C) 2018 William Meng
+[rtl_ultrasound](https://github.com/wlmeng11/rtl_ultrasound/) is Copyright (C) 2018 William Meng
