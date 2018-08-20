@@ -29,7 +29,7 @@ default_params = {
     'upsampling_factor': 10,
     'trigger_ratio': 0.4,
     'trigger_holdoff_us': 220,
-    'max_depth_cm': 32,
+    'max_depth_cm': 10,
     'angle_range': np.pi/2,
 
 }
@@ -165,7 +165,8 @@ def main():
     im_out = generate_image(samples, params=params, verbose=args.verbose)
 
     plt.imshow(im_out, cmap='gray')
-    plt.title("Output image")
+    plt.title("image generated from {}\ndepth={}cm".format(args.filename,
+                                                         params['max_depth_cm']))
     plt.show()
 
 if __name__ == '__main__':
