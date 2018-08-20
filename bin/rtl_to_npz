@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+#
+# Copyright (C) 2018 William Meng
+#
+# This file is part of rtl_ultrasound
+#
+# rtl_ultrasound is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# rtl_ultrasound is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with rtl_ultrasound.  If not, see <http://www.gnu.org/licenses/>.
+
+import numpy as np
+from rtlsdr import *
+import time
+from datetime import datetime
+import argparse
+
+def main():
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description="Convert .npy file, which contains an array named samples, "
+                                     "to an .npz file which contains that same array as well as an array "
+                                     "named sample_rate whose only element is the sampling rate of the samples "
+                                     "array.")
+    parser.add_argument('-v', '--verbose', action='store_true', help="enable verbose output")
+    parser.add_argument('-f', '--frequency', metavar='<frequency>', dest='center_freq', type=int,
+                        default=4250000, help="Center frequency (Hz)")
+    parser.add_argument('-s', '--sample_rate', metavar='<sample rate>', dest='sample_rate', type=int,
+                        default=2400000, help="Sampling rate (Hz)")
+    parser.add_argument('-n', '--num_samples', metavar='<number of samples>', dest='num_samples', type=int,
+                        default=256*1024, help="Number of samples to capture")
+    parser.add_argument('-g', '--gain', metavar='<gain>', dest='gain', type=int,
+                        help="Gain (positive integer), default is auto")
+    parser.add_argument('-o', '--output', metavar='<output file>', dest='outputfile', type=str,
+                         help="Output filename. Default is rtl_samples_(timestamp).npz")
+    args = parser.parse_args()
+
+    verbose = args.verbose
+    center_freq = args.center_freq
+    sample_rate = args.sample_rate
+    num_samples = args.num_samples
+    if args.gain is None:
+        gain = 'auto'
+    else:
+        gain = args.gain
+
+    sdr = RtlSdr()
+
+    # configure device
+    sdr.set_direct_sampling(2) # directly sample Q channel
+    sdr.center_freq = center_freq
+    sdr.sample_rate = sample_rate
+    sdr.gain = gain
+
+    if verbose:
+        print("center freq = {} Hz".format(center_freq))
+        print("sample rate = {} Hz".format(sample_rate))
+        print("gain = {}".format(sdr.gain))
+        print("Start capturing samples...")
+
+    # read samples
+    samples = sdr.read_samples(num_samples)
+    sdr.close()
+    if verbose:
+        print("Captured {} samples".format(len(samples)))
+
+    if args.outputfile:
+        filename = args.outputfile
+    else:
+        # save samples to disk with timestamp
+        timestamp = datetime.fromtimestamp(time.time()).strftime('%Y%m%d_%H%M%S')
+        filename = "rtl_samples_{}.npz".format(timestamp)
+
+    np.savez_compressed(filename, samples=samples, sample_rate=np.array(sample_rate))
+    if verbose:
+        print("Saved data to file {}".format(filename))
+
+
+if __name__ == '__main__':
+    main()
