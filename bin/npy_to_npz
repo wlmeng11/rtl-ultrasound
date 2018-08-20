@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+#
+# Copyright (C) 2018 William Meng
+#
+# This file is part of rtl_ultrasound
+#
+# rtl_ultrasound is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# rtl_ultrasound is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with rtl_ultrasound.  If not, see <http://www.gnu.org/licenses/>.
+
+import sys
+import numpy as np
+import argparse
+
+def main():
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description="Convert .npy file, which contains an array named samples, "
+                                     "to an .npz file which contains that same array as well as an array "
+                                     "named sample_rate whose only element is the sampling rate of the samples "
+                                     "array.")
+    parser.add_argument('-v', '--verbose', action='store_true', help="enable verbose output")
+    parser.add_argument('-f', '--file', metavar='<input file>', dest='inputfile', type=str,
+                        required=True, help="Path of input .npy file")
+    parser.add_argument('-s', metavar='<sample rate>', dest='sample_rate', type=int,
+                        required=True, help="Sampling rate of the array in the .npy file")
+    args = parser.parse_args()
+
+    inputfile = args.inputfile
+    # make sure file extension is npy
+    try:
+        assert(inputfile.lower().endswith('.npy'))
+    except AssertionError:
+        print("ERROR: input file must have file extension .npy")
+        sys.exit()
+
+    samples = np.load(inputfile)
+
+    outputfile = inputfile[:-1] + 'z'  # change file extension to .npz
+    sample_rate = args.sample_rate
+
+    if args.verbose:
+        print("Saving data to file {}".format(outputfile))
+
+    np.savez_compressed(outputfile, samples=samples, sample_rate=np.array(sample_rate))
+
+
+if __name__ == '__main__':
+    main()
