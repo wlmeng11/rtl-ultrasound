@@ -17,6 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with rtl_ultrasound.  If not, see <http://www.gnu.org/licenses/>.
 
+import sys
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
@@ -138,15 +139,30 @@ def generate_image(samples, params=default_params, verbose=False):
 
 def main():
     # Parse command-line arguments
-    parser = argparse.ArgumentParser(description='Generate B-mode ultrasound image from a npy file containing ultrasound data')
+    parser = argparse.ArgumentParser(description='Generate B-mode ultrasound image from a npz file containing ultrasound data')
     parser.add_argument('-v', '--verbose', action='store_true', help="enable verbose output")
     parser.add_argument('--data', metavar='<data filename>', dest='filename', type=str,
-                        required=True, help="Filename of npy data file")
+                        required=True, help="Filename of .npz data file")
     args = parser.parse_args()
 
-    samples = np.load(args.filename)
+    try:
+        assert(args.filename.endswith('.npz'))
+    except AssertionError:
+        print("ERROR: Provided data file must have .npz file extension.")
+        sys.exit()
 
-    im_out = generate_image(samples, verbose=args.verbose)
+    try:
+        data = np.load(args.filename)
+        samples = data['samples']
+        sample_rate = int(data['sample_rate'])
+    except:
+        print("ERROR: Failed to load data. Incorrect format.")
+        sys.exit()
+
+
+    params = default_params
+    params['sample_rate'] = sample_rate
+    im_out = generate_image(samples, params=params, verbose=args.verbose)
 
     plt.imshow(im_out, cmap='gray')
     plt.title("Output image")
