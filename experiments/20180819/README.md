@@ -4,7 +4,7 @@ William Meng K9TTL
 Aug 19, 2018
 
 This script B_mode.py generates and displays a B-mode sector scan image
-from a provided .npy file.
+from a provided .npz file.
 
 A lot of parameters are hardcoded in the default_params dictionary,
 but at least they're not hardcoded in the function itself.
@@ -19,6 +19,10 @@ is then parsed to fill the dictionary.
 Unless otherwise specified, depth = 32 cm.
 Note that depth in this context is a bit of a misnomer, 
 as it refers to the round trip distance rather than 
+
+The data was acquired using the rtl_to_npz script like this:  
+`rtl_to_npz -v -n 5120000`  
+5120000 samples is a bit over 2 seconds with the sampling rate set to 2.4 Msps.
 
 1. Stationary piezo, facing plastic wall.
 This data was acquired in [the previous notebook](../20180818/rtlsdr_ultrasound_test.ipynb).

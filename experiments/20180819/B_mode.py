@@ -8,7 +8,7 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-
+#
 # rtl_ultrasound is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -167,6 +167,8 @@ def main():
     plt.imshow(im_out, cmap='gray')
     plt.title("image generated from {}\ndepth={}cm".format(args.filename,
                                                          params['max_depth_cm']))
+    destfile = args.filename.rstrip('npz') + 'png'
+    plt.savefig(destfile, dpi=300)
     plt.show()
 
 if __name__ == '__main__':

@@ -14,7 +14,15 @@ TODO: get badges
 * gitter.im
 * DOI (zenodo)
 
+
+
 pic of setup & ultrasound image
+
+## Why RTL-SDR?
+explain why quadrature modulation is good for reducing bandwidth of streaming data
+link to paper (Peyton)
+
+RTL-SDR is cheap
 
 ## Installation
 ### System Dependencies
@@ -26,7 +34,7 @@ Install the system dependencies:
 #### Mac OSX
 `brew install python3 librtlsdr`
 
-Warning: If you previously installed software that bundles an out-of-date version of librtlsdr,
+*Warning*: If you previously installed software that bundles an out-of-date version of librtlsdr,
 you may have to remove it, or overwrite the symlinks for librtlsdr: `brew link --overwrite librtlsdr`
 
 ### Automatic installation
@@ -65,6 +73,11 @@ Essentially, it boils down to these steps:
 
 TODO: these steps will be parallelized with multithreading in order to
 provide a fast image update rate with pipelining
+
+## DISCLAIMER
+This software is NOT meant to be used for any medical or diagnostic purposes.
+
+Absolutely no warranty is provided, express or implied.
 
 ## License
 The software contained in this repository makes use of the pyrtlsdr module, and is therefore a derivative work of pyrtlsdr. As such, this work respects the GPL v3 license of pyrtlsdr and is similarly distributed under GPL v3.
