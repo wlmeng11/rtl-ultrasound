@@ -165,8 +165,14 @@ def main():
     im_out = generate_image(samples, params=params, verbose=args.verbose)
 
     plt.imshow(im_out, cmap='gray')
-    plt.title("image generated from {}\ndepth={}cm".format(args.filename,
-                                                         params['max_depth_cm']))
+    title_text = "image generated from {}".format(args.filename)
+    title_text += "\nsample_rate = {} Msps".format(params['sample_rate'] / 1e6)
+    title_text += "  upsampling {}x".format(params['upsampling_factor'])
+    title_text += "\ntrigger ratio = {}".format(params['trigger_ratio'])
+    title_text += "  trigger holdoff = {} µs".format(params['trigger_holdoff_us'])
+    title_text += "\nmax depth = {} cm".format(params['max_depth_cm'])
+    title_text += "  angle range = {}º".format(params['angle_range'] * 180 / np.pi)
+    plt.title(title_text)
     destfile = args.filename.rstrip('npz') + 'png'
     plt.savefig(destfile, dpi=300)
     plt.show()
