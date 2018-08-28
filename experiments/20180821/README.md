@@ -61,7 +61,7 @@ When using a bare piezoelectric disc as the transducer, be wary of echoes from o
 
 So far, the ultrasound system can resolve objects of about 1 cm resolution.
 
-![summary](Screen Shot 2018-08-28 at 12.14.08 PM.png)
+![summary](ControlAnd2Weights.png)
 
 Stuff to improve in the image processing:
 
