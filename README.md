@@ -58,6 +58,8 @@ As such, there is a lot of software support and a large community for the RTL-SD
 
 With a few software tweaks, it should be possible to substitute the RTL-SDR with a more expensive SDR (eg. AirSpy HF+, LimeSDR) for use cases that require better ADC resolution and SNR.
 
+TODO: total system cost
+
 ## Installation
 ### System Dependencies
 Install the system dependencies:
@@ -86,11 +88,23 @@ Run the install script:
 `python3 setup.py install`
 
 ## Usage
+### Hardware Setup
 This software is designed to be used with the [RTL-SDR v3](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/)
 in conjunction with the [SimpleRick](https://github.com/wlmeng11/SimpleRick) hardware.
 
+TODO: block diagram
+
 However, this software can be also used with any ultrasound hardware which
 provides an analog signal output that can be fed to the input of the RTL-SDR.
+
+### Capturing images
+To capture approximately 1 second of data from the RTL-SDR and save it to a .npz file, run:  
+`rtl_to_npz -v -n 5120000`
+
+Next, generate an image from the .npz file:  
+`B_mode -v --data (data file name).npz`
+
+In the future, this process will be streamlined into a single script and possibly a GUI.
 
 ## Documentation
 A fairly comprehensive overview of the entire process from data acquisition to rendered image
