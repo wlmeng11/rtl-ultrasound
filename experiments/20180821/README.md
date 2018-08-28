@@ -59,7 +59,7 @@ For this image, I removed that weight.
 The ability to control the motor's speed and angle allows for reliable and repeatable ultrasound imaging.
 When using a bare piezoelectric disc as the transducer, be wary of echoes from objects on both sides of the piezo.
 
-So far, the ultrasound system can resolve objects of about 1 cm resolution.
+So far, the ultrasound system can resolve objects with a resolution on the order of 1 cm.
 
 ![summary](ControlAnd2Weights.png)
 

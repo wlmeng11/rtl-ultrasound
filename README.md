@@ -16,19 +16,53 @@ TODO: get badges
 
 
 
-pic of setup & ultrasound image
+## Latest results
 
-## Why RTL-SDR?
-explain why quadrature modulation is good for reducing bandwidth of streaming data
-link to paper (Peyton)
+See the [Aug 21, 2018 writeup](experiments/20180821/README.md) for more details.
 
-RTL-SDR is cheap
+_Piezoelectric transducer is swept by servo motor_
+![gif](experiments/20180821/DSCN7889.gif)
+
+_Hardware setup with [SimpleRick v1.1](https://github.com/wlmeng11/SimpleRick/), 12.5 MHz low pass filter, and RTL-SDR_
+![setup](experiments/20180821/DSCN7892.JPG)
+
+![summary](experiments/20180821/ControlAnd2Weights.png)
+
+## Introduction
+
+### Why SDR?
+The analog signal produced by a B-mode ultrasound (ie. 2D imaging)
+is essentially an Amplitude Modulated (AM) signal. The signal's envelope (ie. amplitude) corresponds to boundary information in the physical media, and the signal's carrier frequency is equal to the resonant frequency of the transducer.
+
+Most ultrasound systems take one of two approaches for data acquistion:
+
+1. **Direct sampling of the ultrasound signal:**
+This method preserves the original signal in the time domain , accomadates any transducer frequency, and offers the best flexibility for post-processing and analysis. Both amplitude and phase information can be extracted the signal, so it is useful for both B-mode and Doppler mode imaging.
+However, this method requires a high sample rate ADC, as well as high bandwidth and storage for the digital data. 
+2. **Envelope detection with analog hardware:** Perform Amplitude Demodulation (typically with a diode-based rectifier and low pass filter) to yield an envelope signal, then acquire the envelope signal at a lower sample rate.
+This method reduces the bandwidth and storage requirements for the digital data, but there are a number of drawbacks: 
+	* Unless the low pass filter is adjustable, this method cannot accommodate different transducer frequencies.
+	* The non-linearity of the diode may produce harmonic distortion.
+	* All phase information in the signal is lost, rendering it useless for Doppler mode imaging.
+
+It has been [demonstrated by Peyton et al](https://biomedical-engineering-online.biomedcentral.com/articles/10.1186/s12938-018-0512-6) that quadrature sampling can be used to reduce bandwidth requirements in an ultrasound imaging system.
+
+It turns out that quadrature modulation is essential to Software Defined Radio (SDR) because any type of amplitude modulation, frequency modulation, phase modulation, or combination of these can be expressed as a special case of quadrature modulation. Therefore, many of the software and hardware techniques used in SDR can be applied to ultrasound imaging.
+
+
+### Why RTL-SDR?
+The RTL2832U chip in the RTL-SDR takes a hybrid approach for data acquisition. It employs a high sample rate ADC (28.8 Msps), followed by a software-configurable Digital Down Converter (DDC) that produces IQ data at a lower sample rate (up to 2.56 Msps), thus reducing bandwidth and storage requirements. We can then perform envelope detection *in software*.
+
+Plus, the RTL-SDR is really cheap (under $25 on Amazon in the United States)!
+As such, there is a lot of software support and a large community for the RTL-SDR.
+
+With a few software tweaks, it should be possible to substitute the RTL-SDR with a more expensive SDR (eg. AirSpy HF+, LimeSDR) for use cases that require better ADC resolution and SNR.
 
 ## Installation
 ### System Dependencies
 Install the system dependencies:
 
-* Python 3
+* Python 3 with pip
 * librtlsdr
 
 #### Mac OSX
@@ -60,7 +94,7 @@ provides an analog signal output that can be fed to the input of the RTL-SDR.
 
 ## Documentation
 A fairly comprehensive overview of the entire process from data acquisition to rendered image
-can be found [here](experiments/20180813/rtl_ultrasound_test.ipynb).
+can be found in the [Aug 13, 2018 experiment](experiments/20180813/rtl_ultrasound_test.ipynb).
 
 Essentially, it boils down to these steps:
 
