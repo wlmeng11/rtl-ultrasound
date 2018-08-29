@@ -1,4 +1,4 @@
-# rtl_ultrasound
+# rtl-ultrasound
 -----
 TODO: logo next to title
 
@@ -74,12 +74,12 @@ Install the system dependencies:
 you may have to remove it, or overwrite the symlinks for librtlsdr: `brew link --overwrite librtlsdr`
 
 ### Automatic installation
-Install rtl_ultrasound:  
-`pip3 install rtl_ultrasound`
+Install rtl-ultrasound:  
+`pip3 install rtl-ultrasound`
 
 ### Manual installation
 Clone the development repo:  
-`git clone git@github.com:wlmeng11/rtl_ultrasound.git`
+`git clone git@github.com:wlmeng11/rtl-ultrasound.git`
 
 Install the python package dependencies:  
 `pip3 install -r requirements.txt`
@@ -108,7 +108,7 @@ In the future, this process will be streamlined into a single script and possibl
 
 ## Documentation
 A fairly comprehensive overview of the entire process from data acquisition to rendered image
-can be found in the [Aug 13, 2018 experiment](experiments/20180813/rtl_ultrasound_test.ipynb).
+can be found in the [Aug 13, 2018 experiment](experiments/20180813/rtl-ultrasound_test.ipynb).
 
 Essentially, it boils down to these steps:
 
@@ -134,4 +134,4 @@ The full text of the license can be found in the [COPYING](COPYING) file.
 
 [pyrtlsdr](https://github.com/roger-/pyrtlsdr) is Copyright (C) 2013 by Roger https://github.com/roger-
 
-[rtl_ultrasound](https://github.com/wlmeng11/rtl_ultrasound/) is Copyright (C) 2018 William Meng
+[rtl-ultrasound](https://github.com/wlmeng11/rtl-ultrasound/) is Copyright (C) 2018 William Meng

@@ -12,9 +12,9 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = 'rtl_ultrasound'
+NAME = 'rtl-ultrasound'
 DESCRIPTION = 'Ultrasound imaging with RTL-SDR'
-URL = 'https://github.com/wlmeng11/rtl_ultrasound'
+URL = 'https://github.com/wlmeng11/rtl-ultrasound'
 EMAIL = 'wlmeng11@gmail.com'
 AUTHOR = 'William Meng'
 REQUIRES_PYTHON = '>=3.6.0'

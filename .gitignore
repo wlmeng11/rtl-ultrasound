@@ -2,4 +2,4 @@
 *.pyc
 build/
 dist/
-rtl_ultrasound.egg-info/
+rtl-ultrasound.egg-info/
