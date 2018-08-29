@@ -1,5 +1,10 @@
 # rtl-ultrasound
 -----
+[![PyPI version](https://badge.fury.io/py/rtl-ultrasound.svg)](https://badge.fury.io/py/rtl-ultrasound)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![HitCount](http://hits.dwyl.io/wlmeng11/rtl-ultrasound.svg)](http://hits.dwyl.io/wlmeng11/rtl-ultrasound)
+
+
 TODO: logo next to title
 
 TODO: get badges
@@ -9,11 +14,8 @@ TODO: get badges
 * coverage x% (coveralls.io)
 * docs passing (readthedocs.io)
 * code quality (codacy)
-* PyPI (badge.fury.io)
-* license
 * gitter.im
 * DOI (zenodo)
-
 
 
 ## Latest results
