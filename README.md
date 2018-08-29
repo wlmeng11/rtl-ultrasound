@@ -85,7 +85,7 @@ Install the python package dependencies:
 `pip3 install -r requirements.txt`
 
 Run the install script:  
-`python3 setup.py install`
+`pip3 install .`
 
 ## Usage
 ### Hardware Setup

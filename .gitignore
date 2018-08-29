@@ -1,2 +1,5 @@
 *.ipynb_checkpoints
 *.pyc
+build/
+dist/
+rtl_ultrasound.egg-info/
