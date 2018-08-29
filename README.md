@@ -1,5 +1,5 @@
 # rtl-ultrasound
------
+
 [![PyPI version](https://badge.fury.io/py/rtl-ultrasound.svg)](https://badge.fury.io/py/rtl-ultrasound)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![HitCount](http://hits.dwyl.io/wlmeng11/rtl-ultrasound.svg)](http://hits.dwyl.io/wlmeng11/rtl-ultrasound)
@@ -39,7 +39,7 @@ is essentially an Amplitude Modulated (AM) signal. The signal's envelope (ie. am
 Most ultrasound systems take one of two approaches for data acquistion:
 
 1. **Direct sampling of the ultrasound signal:**
-This method preserves the original signal in the time domain , accomadates any transducer frequency, and offers the best flexibility for post-processing and analysis. Both amplitude and phase information can be extracted the signal, so it is useful for both B-mode and Doppler mode imaging.
+This method preserves the original signal in the time domain, accomodates any transducer frequency, and offers the best flexibility for post-processing and analysis. Both amplitude and phase information can be extracted the signal, so it is useful for both B-mode and Doppler mode imaging.
 However, this method requires a high sample rate ADC, as well as high bandwidth and storage for the digital data. 
 2. **Envelope detection with analog hardware:** Perform Amplitude Demodulation (typically with a diode-based rectifier and low pass filter) to yield an envelope signal, then acquire the envelope signal at a lower sample rate.
 This method reduces the bandwidth and storage requirements for the digital data, but there are a number of drawbacks: 
