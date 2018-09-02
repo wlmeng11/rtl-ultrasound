@@ -110,7 +110,7 @@ In the future, this process will be streamlined into a single script and possibl
 
 ## Documentation
 A fairly comprehensive overview of the entire process from data acquisition to rendered image
-can be found in the [Aug 13, 2018 experiment](experiments/20180813/rtl-ultrasound_test.ipynb).
+can be found in the [Aug 13, 2018 experiment](experiments/20180813/rtl_ultrasound_test.ipynb).
 
 Essentially, it boils down to these steps:
 
