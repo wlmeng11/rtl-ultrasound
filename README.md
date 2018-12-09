@@ -1,5 +1,10 @@
 # rtl-ultrasound
-[Hardware](https://github.com/wlmeng11/SimpleRick) | [Firmware](https://github.com/wlmeng11/SimpleRick_firmware) | **Sofware**
+
+**Software**
+&larr;
+[Firmware](https://github.com/wlmeng11/SimpleRick_firmware)
+&larr;
+[Hardware](https://github.com/wlmeng11/SimpleRick)
 
 [![PyPI version](https://badge.fury.io/py/rtl-ultrasound.svg)](https://badge.fury.io/py/rtl-ultrasound)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
