@@ -23,8 +23,8 @@ TODO: get badges
 * code quality (codacy)
 * DOI (zenodo)
 
-As [featured on the official RTL-SDR blog](https://www.rtl-sdr.com/rtl_ultrasound-using-a-piezoelectric-transducer-with-an-rtl-sdr-to-create-an-ultrasound-imager/):
-[![feature](rtl-blog-feature.png)](https://www.rtl-sdr.com/rtl_ultrasound-using-a-piezoelectric-transducer-with-an-rtl-sdr-to-create-an-ultrasound-imager/)
+As [featured on the official RTL-SDR blog](https://www.rtl-sdr.com/rtl_ultrasound-using-a-piezoelectric-transducer-with-an-rtl-sdr-to-create-an-ultrasound-imager/):  
+<img src="https://raw.githubusercontent.com/wlmeng11/rtl-ultrasound/master/rtl-blog-feature.png" alt="Featured on official RTL-SDR blog" width="50%">
 
 ## Latest results
 
