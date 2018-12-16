@@ -21,12 +21,13 @@ As [featured on the official RTL-SDR blog](https://www.rtl-sdr.com/rtl_ultrasoun
 
 See the [Aug 21, 2018 writeup](experiments/20180821/README.md) for more details.
 
-_Piezoelectric transducer is swept by servo motor_  
-![gif](experiments/20180821/DSCN7889.gif)
-
 _Hardware setup with [SimpleRick v1.1](https://github.com/wlmeng11/SimpleRick/), 12.5 MHz low pass filter, and RTL-SDR_
 ![setup](experiments/20180821/DSCN7892.JPG)
 
+_Piezoelectric transducer is swept by servo motor_  
+![gif](experiments/20180821/DSCN7889.gif)
+
+_Experimental results_  
 ![summary](experiments/20180821/ControlAnd2Weights.png)
 
 ## Introduction
