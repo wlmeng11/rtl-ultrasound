@@ -1,4 +1,7 @@
 # rtl-ultrasound
+by William Meng
+
+rtl-ultrasound is the software component of the first-ever ultrasound imaging system based on Software Defined Radio (SDR).
 
 **Software**
 &larr;
@@ -9,19 +12,7 @@
 [![PyPI version](https://badge.fury.io/py/rtl-ultrasound.svg)](https://badge.fury.io/py/rtl-ultrasound)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![HitCount](http://hits.dwyl.io/wlmeng11/rtl-ultrasound.svg)](http://hits.dwyl.io/wlmeng11/rtl-ultrasound)
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/rtl-ultrasound/Lobby)
 
-
-TODO: logo next to title
-
-TODO: get badges
-
-* build passing (Travis)
-* build passing (appveyor)
-* coverage x% (coveralls.io)
-* docs passing (readthedocs.io)
-* code quality (codacy)
-* DOI (zenodo)
 
 As [featured on the official RTL-SDR blog](https://www.rtl-sdr.com/rtl_ultrasound-using-a-piezoelectric-transducer-with-an-rtl-sdr-to-create-an-ultrasound-imager/):  
 <img src="https://raw.githubusercontent.com/wlmeng11/rtl-ultrasound/master/rtl-blog-feature.png" alt="Featured on official RTL-SDR blog" width="50%">
@@ -30,7 +21,7 @@ As [featured on the official RTL-SDR blog](https://www.rtl-sdr.com/rtl_ultrasoun
 
 See the [Aug 21, 2018 writeup](experiments/20180821/README.md) for more details.
 
-_Piezoelectric transducer is swept by servo motor_
+_Piezoelectric transducer is swept by servo motor_  
 ![gif](experiments/20180821/DSCN7889.gif)
 
 _Hardware setup with [SimpleRick v1.1](https://github.com/wlmeng11/SimpleRick/), 12.5 MHz low pass filter, and RTL-SDR_
